@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeForge Freelance — Sign Up</title>
+  <link rel="stylesheet" href="../style/signup.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="brand-mark">&lt;/&gt;</span>
+      <span class="brand-name">CodeForge</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="signin.html">Sign In</a>
+      <a href="signup.html" class="active">Sign Up</a>
+      <a href="orders.html">Request a Project</a>
+      <a href="instructions.html">Guidelines</a>
+    </div>
+  </nav>
+
+  <main class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-head">
+        <p class="eyebrow">New here</p>
+        <h1>Create your account</h1>
+        <p class="auth-sub">Set up an account once, then submit as many project requests as you need.</p>
+      </div>
+
+      <form id="signupForm" class="auth-form">
+        <div class="field">
+          <label for="fullName">Full name</label>
+          <input type="text" id="fullName" name="fullName" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Create a password" required>
+        </div>
+        <div class="field">
+          <label for="confirmPassword">Confirm password</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Repeat your password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+      </form>
+
+      <p class="auth-switch">Already have an account? <a href="signin.html">Sign in</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-flex">
+      <span>&copy; 2026 CodeForge Freelance</span>
+      <span>Contact: 01030340178</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var pass = document.getElementById('password').value;
+      var confirm = document.getElementById('confirmPassword').value;
+      if (pass !== confirm) {
+        alert('Passwords do not match. Please try again.');
+        return;
+      }
+      // In a full build this would create the account on a server.
+      // For this static site, a successful sign-up takes the user to sign in.
+      window.location.href = 'signin.html';
+    });
+  </script>
+
+</body>
+</html>

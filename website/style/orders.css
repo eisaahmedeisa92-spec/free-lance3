@@ -1,0 +1,162 @@
+/* ===== Design tokens ===== */
+:root {
+  --bg: #0D1117;
+  --surface: #141A22;
+  --surface-alt: #1B222C;
+  --border: #2A323D;
+  --text: #ECE9E2;
+  --text-dim: #9AA4B2;
+  --accent: #43D9C0;
+  --accent-2: #F2B84B;
+  --danger: #FF6B5B;
+  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-body: 'Inter', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+h1, h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.01em; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 4vw;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.nav-brand { display: flex; align-items: center; gap: 0.5rem; }
+.brand-mark { font-family: var(--font-mono); color: var(--accent); font-size: 1.1rem; }
+.brand-name { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; }
+.nav-links { display: flex; gap: 1.8rem; }
+.nav-links a { color: var(--text-dim); font-size: 0.92rem; }
+.nav-links a:hover, .nav-links a.active { color: var(--accent); text-decoration: none; }
+
+/* ===== Hero ===== */
+.orders-hero {
+  padding: 3.5rem 4vw 2rem;
+  max-width: 720px;
+}
+.orders-hero h1 { font-size: 2rem; margin: 0.3rem 0 0.8rem; }
+.orders-sub { color: var(--text-dim); }
+
+/* ===== Layout ===== */
+.orders-wrap { padding: 0 4vw 4rem; }
+
+.orders-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.order-form {
+  flex: 2 1 480px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.field { display: flex; flex-direction: column; gap: 0.4rem; }
+.field label { font-size: 0.85rem; color: var(--text-dim); }
+
+.field input,
+.field select,
+.field textarea {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 0.9rem;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  resize: vertical;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.6rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.15s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--accent); color: #06211D; }
+.btn-primary:hover { background: #58e6cf; }
+.btn-block { width: 100%; }
+
+.form-note { font-size: 0.8rem; color: var(--text-dim); text-align: center; }
+
+.orders-side {
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.side-card {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.4rem;
+}
+.side-card h3 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--accent-2); }
+.side-card p { color: var(--text-dim); font-size: 0.9rem; }
+.side-phone {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  color: var(--text);
+  margin-top: 0.4rem;
+}
+
+/* ===== Footer ===== */
+.site-footer { padding: 1.6rem 4vw; background: var(--surface); border-top: 1px solid var(--border); }
+.footer-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 720px) {
+  .navbar { flex-direction: column; gap: 0.8rem; }
+  .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+}

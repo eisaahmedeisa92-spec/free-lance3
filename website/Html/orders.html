@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeForge Freelance — Request a Project</title>
+  <link rel="stylesheet" href="../style/orders.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="brand-mark">&lt;/&gt;</span>
+      <span class="brand-name">CodeForge</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="signin.html">Sign In</a>
+      <a href="signup.html">Sign Up</a>
+      <a href="orders.html" class="active">Request a Project</a>
+      <a href="instructions.html">Guidelines</a>
+    </div>
+  </nav>
+
+  <header class="orders-hero">
+    <p class="eyebrow">Project request</p>
+    <h1>Tell me about your website</h1>
+    <p class="orders-sub">Fill in the form below. Not sure which tier your project falls under? Check the
+      <a href="instructions.html">project guidelines</a> first.</p>
+  </header>
+
+  <main class="orders-wrap">
+    <div class="orders-grid">
+
+      <form id="orderForm" class="order-form">
+        <div class="field">
+          <label for="complexity">Project classification</label>
+          <select id="complexity" name="complexity" required>
+            <option value="" disabled selected>Choose a tier</option>
+            <option value="Easy">Easy — up to 2 pages</option>
+            <option value="Medium">Medium — 3 to 5 pages</option>
+            <option value="Hard">Hard — beyond that scope</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="clientName">Client name</label>
+          <input type="text" id="clientName" name="clientName" placeholder="Your full name" required>
+        </div>
+
+        <div class="field">
+          <label for="description">Website description</label>
+          <textarea id="description" name="description" rows="6" placeholder="What is the site for, who is it for, and what pages or features does it need?" required></textarea>
+        </div>
+
+        <div class="field">
+          <label for="deliveryEmail">Email to send the finished website to</label>
+          <input type="email" id="deliveryEmail" name="deliveryEmail" placeholder="you@example.com" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Submit Request</button>
+        <p class="form-note">Submitting opens your email app with the request pre-filled, addressed to
+          eisaahmedeisa92@gmail.com.</p>
+      </form>
+
+      <aside class="orders-side">
+        <div class="side-card">
+          <h3>Contact us directly</h3>
+          <p>Prefer to talk it through first?</p>
+          <p class="side-phone">01030340178</p>
+        </div>
+        <div class="side-card">
+          <h3>Not sure about the tier?</h3>
+          <p>The Easy / Medium / Hard classification is based on page count and code length per page. Full rules are on the <a href="instructions.html">Guidelines page</a>.</p>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-flex">
+      <span>&copy; 2026 CodeForge Freelance</span>
+      <span>Contact: 01030340178 · eisaahmedeisa92@gmail.com</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('orderForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var complexity = document.getElementById('complexity').value;
+      var clientName = document.getElementById('clientName').value;
+      var description = document.getElementById('description').value;
+      var deliveryEmail = document.getElementById('deliveryEmail').value;
+
+      var subject = 'New project request — ' + complexity + ' (' + clientName + ')';
+      var body =
+        'Client name: ' + clientName + '\n' +
+        'Project classification: ' + complexity + '\n' +
+        'Email to send finished website to: ' + deliveryEmail + '\n\n' +
+        'Website description:\n' + description + '\n\n' +
+        '---\n' +
+        'Sent from the CodeForge project request form.';
+
+      var mailtoLink =
+        'mailto:eisaahmedeisa92@gmail.com' +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+
+      window.location.href = mailtoLink;
+    });
+  </script>
+
+</body>
+</html>
